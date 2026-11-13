@@ -71,138 +71,132 @@ function App() {
   }, []);
 
   return (
-    <div className="site-shell min-h-[100dvh] text-[#20323a]">
-      <header className="sticky top-0 z-50 border-b border-[#d9d2c5]/80 bg-[#f6f2e9]/95 backdrop-blur-md">
+    <div className="site-shell spartan-green-page min-h-[100dvh] bg-white text-[#263631]">
+      <header className="sticky top-0 z-50 border-b border-[#dce6e1] bg-white/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between px-5 py-4 md:px-10">
           <a href="#top" onClick={closeMenu} className="flex items-center gap-3" aria-label="Hee Jung Cho, home">
-            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#247366] font-serif text-lg text-[#f6f2e9]">H</span>
+            <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[#18453B] font-serif text-lg text-white">H</span>
             <span className="text-[13px] font-semibold tracking-[.01em]">Hee Jung Cho</span>
           </a>
           <nav className="hidden items-center gap-8 md:flex" aria-label="Main navigation">
             {['About', 'Research', 'Publications', 'Teaching', 'CV'].map((item) => (
-              <a key={item} className="nav-link text-[12px] font-medium text-[#526168] transition-colors hover:text-[#247366]" href={`#${item.toLowerCase()}`}>{item}</a>
+              <a key={item} className="nav-link text-[12px] font-medium text-[#40534d] transition-colors hover:text-[#18453B]" href={`#${item.toLowerCase()}`}>{item}</a>
             ))}
-            <a href="#contact" className="rounded-full bg-[#203c3b] px-4 py-2.5 text-[11px] font-semibold text-[#f8f4eb] transition hover:bg-[#247366]">Get in touch <ArrowUpRight className="ml-1 inline" size={13} /></a>
+            <a href="#contact" className="rounded-full bg-[#18453B] px-4 py-2.5 text-[11px] font-semibold text-white transition hover:bg-[#10372f]">Get in touch <ArrowUpRight className="ml-1 inline" size={13} /></a>
           </nav>
-          <button onClick={() => setMenuOpen(!menuOpen)} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#d9d2c5] md:hidden" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
+          <button onClick={() => setMenuOpen(!menuOpen)} className="flex h-10 w-10 items-center justify-center rounded-full border border-[#dce6e1] text-[#18453B] md:hidden" aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>
             {menuOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
-        {menuOpen && <nav className="grid gap-1 border-t border-[#d9d2c5] bg-[#f6f2e9] px-5 py-4 md:hidden" aria-label="Mobile navigation">
-          {['About', 'Research', 'Publications', 'Teaching', 'CV', 'Contact'].map((item) => <a onClick={closeMenu} key={item} href={`#${item.toLowerCase()}`} className="rounded-lg px-3 py-2.5 text-sm hover:bg-[#e9e5da]">{item}</a>)}
+        {menuOpen && <nav className="grid gap-1 border-t border-[#dce6e1] bg-white px-5 py-4 md:hidden" aria-label="Mobile navigation">
+          {['About', 'Research', 'Publications', 'Teaching', 'CV', 'Contact'].map((item) => <a onClick={closeMenu} key={item} href={`#${item.toLowerCase()}`} className="rounded-lg px-3 py-2.5 text-sm hover:bg-[#f1f5f3]">{item}</a>)}
         </nav>}
       </header>
 
       <main id="top">
         <section className="relative mx-auto grid max-w-[1320px] items-center gap-14 px-5 pb-20 pt-16 md:grid-cols-[1.1fr_.9fr] md:px-10 md:pb-28 md:pt-24">
           <div className="reveal relative z-10">
-            <div className="eyebrow mb-7 flex items-center gap-3 text-[#247366]"><span className="h-px w-8 bg-[#247366]" /> Communication · Michigan State University</div>
-            <h1 className="serif max-w-[780px] text-[clamp(3.5rem,8.5vw,7.4rem)] leading-[.91] tracking-[-.055em] text-[#20323a]">
-              How messages<br />move us<span className="text-[#d36c50]">.</span>
+            <div className="eyebrow mb-7 flex items-center gap-3 text-[#18453B]"><span className="h-px w-8 bg-[#18453B]" /> Communication · Michigan State University</div>
+            <h1 className="serif max-w-[780px] text-[clamp(3.5rem,8.5vw,7.4rem)] leading-[.91] tracking-[-.055em] text-[#18453B]">
+              How messages<br />move us<span className="text-[#18453B]">.</span>
             </h1>
-            <p className="mt-8 max-w-[550px] text-[16px] leading-[1.8] text-[#59676a] md:text-[18px]">
-              I study how communication travels from the moment it catches our attention to the emotions we feel and the memories we keep.
+            <p className="mt-8 max-w-[550px] text-[16px] leading-[1.8] text-[#46564f] md:text-[18px]">
+              I study the full trajectory of message processing, from initial exposure and attention to message reception and persuasive effects.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-4">
-              <a href="#research" className="group inline-flex items-center gap-3 rounded-full bg-[#247366] px-6 py-3.5 text-sm font-semibold text-[#f6f2e9] transition hover:bg-[#1c5b52]">
+              <a href="#research" className="group inline-flex items-center gap-3 rounded-full bg-[#18453B] px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-[#10372f]">
                 Explore my research <ArrowDown className="transition-transform group-hover:translate-y-1" size={15} />
               </a>
-              <a href={assetUrl('hee-jung-cho-cv.pdf')} download className="inline-flex items-center gap-2 px-3 py-3 text-sm font-semibold text-[#20323a] hover:text-[#247366]">
+              <a href={assetUrl('hee-jung-cho-cv.pdf')} download className="inline-flex items-center gap-2 px-3 py-3 text-sm font-semibold text-[#18453B] hover:text-[#10372f]">
                 <Download size={15} /> Download CV
               </a>
             </div>
-            <div className="mt-12 flex items-center gap-3 border-t border-[#d9d2c5] pt-5">
-              <span className="h-2 w-2 rounded-full bg-[#d36c50]" />
-              <span className="text-sm text-[#59676a]">PhD candidate in Communication</span>
-              <span className="text-[#a69f92]">·</span>
-              <span className="text-sm text-[#59676a]">Expected 2027</span>
+            <div className="mt-12 flex items-center gap-3 border-t border-[#dce6e1] pt-5">
+              <span className="h-2 w-2 rounded-full bg-[#18453B]" />
+              <span className="text-sm text-[#46564f]">PhD candidate in Communication</span>
+              <span className="text-[#9aa9a1]">·</span>
+              <span className="text-sm text-[#46564f]">Expected 2027</span>
             </div>
           </div>
-          <div className="reveal reveal-delay relative mx-auto w-full max-w-[440px] md:mr-4">
-            <div className="absolute -right-5 -top-7 z-10 hidden h-32 w-32 rounded-full border border-[#c9c1b3] md:block" />
-            <div className="absolute -bottom-6 -left-7 z-10 hidden h-24 w-24 rounded-full bg-[#e8c8a8] md:block" />
-            <div className="relative z-20 aspect-[.89] overflow-hidden rounded-t-[46%] rounded-b-[46%] bg-[#ddd8d1]">
+          <div className="reveal reveal-delay mx-auto w-full max-w-[440px]">
+            <div className="aspect-[.89] overflow-hidden rounded-t-[46%] rounded-b-[46%] bg-[#f1f5f3]">
               <img src={assetUrl('profile-photo.jpg')} alt="Hee Jung Cho" className="h-full w-full object-cover object-top" />
-            </div>
-            <div className="absolute -bottom-2 right-0 z-30 w-[210px] border border-[#d9d2c5] bg-[#f6f2e9] p-4 shadow-[0_14px_40px_rgba(32,50,58,.08)] md:-right-10 md:bottom-7">
-              <div className="eyebrow text-[#247366]">Research lens</div>
-              <p className="serif mt-2 text-[20px] leading-tight">Attention → emotion → memory</p>
             </div>
           </div>
         </section>
 
-        <div className="border-y border-[#d9d2c5] bg-[#eee9de]">
+        <div className="border-y border-[#e2eae6] bg-[#f7f9f8]">
           <div className="mx-auto grid max-w-[1320px] gap-0 px-5 py-6 sm:grid-cols-3 md:px-10">
-            <div className="flex items-center gap-3 py-2 sm:border-r sm:border-[#d4ccbd] sm:pl-1"><Eye className="text-[#247366]" size={19} /><span className="text-sm font-medium">Immersive media</span></div>
-            <div className="flex items-center gap-3 py-2 sm:justify-center sm:border-r sm:border-[#d4ccbd]"><Brain className="text-[#d36c50]" size={19} /><span className="text-sm font-medium">Emotion & cognition</span></div>
-            <div className="flex items-center gap-3 py-2 sm:justify-end"><Radio className="text-[#247366]" size={19} /><span className="text-sm font-medium">Physiological methods</span></div>
+            <div className="flex items-center gap-3 py-2 sm:border-r sm:border-[#dce6e1] sm:pl-1"><Eye className="text-[#18453B]" size={19} /><span className="text-sm font-medium">Immersive media</span></div>
+            <div className="flex items-center gap-3 py-2 sm:justify-center sm:border-r sm:border-[#dce6e1]"><Brain className="text-[#18453B]" size={19} /><span className="text-sm font-medium">Emotion & cognition</span></div>
+            <div className="flex items-center gap-3 py-2 sm:justify-end"><Radio className="text-[#18453B]" size={19} /><span className="text-sm font-medium">Physiological methods</span></div>
           </div>
         </div>
 
         <section id="about" className="mx-auto grid max-w-[1320px] gap-10 px-5 py-20 md:grid-cols-[.7fr_1.3fr] md:px-10 md:py-28">
           <div>
-            <span className="eyebrow text-[#d36c50]">01 — A little context</span>
-            <h2 className="serif mt-5 max-w-sm text-4xl leading-[1.08] tracking-[-.03em] md:text-5xl">The person behind the questions.</h2>
+            <span className="eyebrow text-[#18453B]">01 — A little context</span>
+            <h2 className="serif mt-5 max-w-sm text-4xl leading-[1.08] tracking-[-.03em] text-[#18453B] md:text-5xl">The person behind the questions.</h2>
           </div>
           <div className="max-w-[760px]">
-            <p className="serif text-[25px] leading-[1.48] text-[#30464b] md:text-[31px]">
+            <p className="serif text-[25px] leading-[1.48] text-[#18453B] md:text-[31px]">
               My research lies at the intersection of persuasion, health communication, and emerging technologies—including virtual reality and artificial intelligence.
             </p>
-            <p className="mt-6 max-w-[670px] text-[15px] leading-[1.9] text-[#59676a]">
+            <p className="mt-6 max-w-[670px] text-[15px] leading-[1.9] text-[#46564f]">
               I examine how people process messages, from what captures attention to how they experience emotions and form memories. Using immersive technologies and physiological measures, I explore how cognitive and emotional responses unfold during message exposure.
             </p>
             <div className="mt-9 flex flex-wrap gap-2">
-              {['Media psychology', 'VR & AI', 'Persuasion', 'Health communication', 'Emotion & cognition', 'Psychophysiology'].map((tag) => <span key={tag} className="rounded-full border border-[#d9d2c5] px-3.5 py-2 text-[11px] font-medium tracking-wide text-[#526168]">{tag}</span>)}
+              {['Media psychology', 'VR & AI', 'Persuasion', 'Health communication', 'Emotion & cognition', 'Psychophysiology'].map((tag) => <span key={tag} className="rounded-full border border-[#dce6e1] px-3.5 py-2 text-[11px] font-medium tracking-wide text-[#40534d]">{tag}</span>)}
             </div>
           </div>
         </section>
 
-        <section id="research" className="bg-[#203b3c] text-[#f6f2e9]">
+        <section id="research" className="border-y border-[#e2eae6] bg-white text-[#263631]">
           <div className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-28">
             <div className="grid gap-12 md:grid-cols-[.75fr_1.25fr]">
               <div>
-                <span className="eyebrow text-[#df9778]">02 — Research</span>
-                <h2 className="serif mt-5 max-w-sm text-4xl leading-[1.08] tracking-[-.03em] md:text-5xl">A message is never just a message.</h2>
-                <p className="mt-6 max-w-sm text-[14px] leading-[1.85] text-[#c4d0c9]">I bring controlled experiments into vivid, lifelike contexts to understand what communication does as it happens.</p>
+                <span className="eyebrow text-[#18453B]">02 — Research</span>
+                <h2 className="serif mt-5 max-w-sm text-4xl leading-[1.08] tracking-[-.03em] text-[#18453B] md:text-5xl">A message is never just a message.</h2>
+                <p className="mt-6 max-w-sm text-[14px] leading-[1.85] text-[#46564f]">I bring controlled experiments into vivid, lifelike contexts to understand what communication does as it happens.</p>
               </div>
               <div className="grid gap-0 sm:grid-cols-2">
-                <article className="border-b border-[#ffffff]/20 pb-7 sm:border-r sm:pr-8">
-                  <span className="mono text-[11px] text-[#df9778]">01 / EXPOSURE</span>
-                  <h3 className="serif mt-4 text-2xl">What gets noticed?</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#c4d0c9]">Eye-tracking and gaze-contingent VR help reveal how attention meets a message in a richly immersive world.</p>
+                <article className="border-b border-[#dce6e1] pb-7 sm:border-r sm:pr-8">
+                  <span className="mono text-[11px] text-[#18453B]">01 / EXPOSURE</span>
+                  <h3 className="serif mt-4 text-2xl text-[#18453B]">What gets noticed?</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46564f]">Eye-tracking and gaze-contingent VR help reveal how attention meets a message in a richly immersive world.</p>
                 </article>
-                <article className="border-b border-[#ffffff]/20 pb-7 pt-7 sm:pl-8 sm:pt-0">
-                  <span className="mono text-[11px] text-[#df9778]">02 / RECEPTION</span>
-                  <h3 className="serif mt-4 text-2xl">What is felt?</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#c4d0c9]">Physiological responses offer a window into the emotional experience of stories and persuasive content.</p>
+                <article className="border-b border-[#dce6e1] pb-7 pt-7 sm:pl-8 sm:pt-0">
+                  <span className="mono text-[11px] text-[#18453B]">02 / RECEPTION</span>
+                  <h3 className="serif mt-4 text-2xl text-[#18453B]">What is felt?</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46564f]">Physiological responses offer a window into the emotional experience of stories and persuasive content.</p>
                 </article>
-                <article className="pb-7 pt-7 sm:border-r sm:pr-8 sm:pt-8">
-                  <span className="mono text-[11px] text-[#df9778]">03 / RETENTION</span>
-                  <h3 className="serif mt-4 text-2xl">What stays with us?</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#c4d0c9]">I trace how exposure and reception contribute to memory—connecting what people see and feel with what they remember.</p>
+                <article className="pb-7 pt-7 sm:border-r sm:border-[#dce6e1] sm:pr-8 sm:pt-8">
+                  <span className="mono text-[11px] text-[#18453B]">03 / RETENTION</span>
+                  <h3 className="serif mt-4 text-2xl text-[#18453B]">What stays with us?</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46564f]">I trace how exposure and reception contribute to memory—connecting what people see and feel with what they remember.</p>
                 </article>
-                <article className="border-t border-[#ffffff]/20 pt-7 sm:pl-8 sm:pt-8">
-                  <span className="mono text-[11px] text-[#df9778]">04 / APPLICATION</span>
-                  <h3 className="serif mt-4 text-2xl">How can messages help?</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#c4d0c9]">This work speaks to health communication and the design of messages that can make a meaningful difference.</p>
+                <article className="border-t border-[#dce6e1] pt-7 sm:pl-8 sm:pt-8">
+                  <span className="mono text-[11px] text-[#18453B]">04 / APPLICATION</span>
+                  <h3 className="serif mt-4 text-2xl text-[#18453B]">How can messages help?</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#46564f]">This work speaks to health communication and the design of messages that can make a meaningful difference.</p>
                 </article>
               </div>
             </div>
 
-            <div className="mt-16 grid overflow-hidden rounded-sm bg-[#f1ede4] text-[#20323a] md:grid-cols-[1.15fr_.85fr]">
+            <div className="mt-16 grid overflow-hidden rounded-sm border border-[#dce6e1] bg-white text-[#263631] md:grid-cols-[1.15fr_.85fr]">
               <div className="flex flex-col justify-between p-7 md:p-10">
                 <div>
-                  <span className="eyebrow text-[#247366]">Featured study · Virtual reality</span>
-                  <h3 className="serif mt-5 max-w-lg text-3xl leading-[1.13] md:text-[42px]">The message in your line of sight.</h3>
-                  <p className="mt-5 max-w-lg text-sm leading-7 text-[#59676a]">In a virtual city, eye-tracking makes it possible to study how gaze-contingent exposure shapes what people notice, process, and remember.</p>
+                  <span className="eyebrow text-[#18453B]">Featured study · Virtual reality</span>
+                  <h3 className="serif mt-5 max-w-lg text-3xl leading-[1.13] text-[#18453B] md:text-[42px]">The message in your line of sight.</h3>
+                  <p className="mt-5 max-w-lg text-sm leading-7 text-[#46564f]">In a virtual city, eye-tracking makes it possible to study how gaze-contingent exposure shapes what people notice, process, and remember.</p>
                 </div>
                 <div className="mt-8">
                   <p className="text-[12px] font-semibold leading-6">Memory Inception through Gaze-contingent Message Exposure: Using Virtual Reality to Study Media Influence</p>
-                  <p className="mt-1 text-[12px] text-[#687578]">Cho, H. J., Lim, S., Saenz, M., & Schmälzle, R. · Journal of Communication, 2026</p>
-                  <a href={assetUrl('featured-study.pdf')} download className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#247366] px-5 py-3 text-xs font-semibold text-[#f6f2e9] transition hover:bg-[#1c5b52]"><Download size={14} /> Download featured study</a>
+                  <p className="mt-1 text-[12px] text-[#5c6b64]">Cho, H. J., Lim, S., Saenz, M., & Schmälzle, R. · Journal of Communication, 2026</p>
+                  <a href={assetUrl('featured-study.pdf')} download className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#18453B] px-5 py-3 text-xs font-semibold text-white transition hover:bg-[#10372f]"><Download size={14} /> Download featured study</a>
                 </div>
               </div>
-              <div className="flex min-h-[260px] items-center justify-center border-t border-[#d9d2c5] bg-[#e7e4dc] p-5 md:border-l md:border-t-0 md:p-8">
+              <div className="flex min-h-[260px] items-center justify-center border-t border-[#dce6e1] bg-[#f7f9f8] p-5 md:border-l md:border-t-0 md:p-8">
                 <img src={assetUrl('vr-eye-tracking-study.png')} alt="Study illustration: a participant wearing a VR headset with eye-tracking in a virtual city environment" className="h-full max-h-[370px] w-full object-contain" />
               </div>
             </div>
