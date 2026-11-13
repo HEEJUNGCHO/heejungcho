@@ -1,5 +1,8 @@
 import { ArrowDown, ArrowUpRight, BookOpen, Brain, Download, ExternalLink, Eye, Mail, Menu, Radio, X } from 'lucide-react';
-import { useState, type ReactNode } from 'react';
+import { useEffect, useState, type ReactNode } from 'react';
+
+const assetUrl = (filename: string) =>
+  `${import.meta.env.BASE_URL}assets/${filename}`;
 
 const publications = [
   {
@@ -56,6 +59,17 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const closeMenu = () => setMenuOpen(false);
 
+  useEffect(() => {
+    const sectionId = window.location.hash.slice(1);
+    if (!sectionId) return;
+
+    const frame = window.requestAnimationFrame(() => {
+      document.getElementById(decodeURIComponent(sectionId))?.scrollIntoView();
+    });
+
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
+
   return (
     <div className="site-shell min-h-[100dvh] text-[#20323a]">
       <header className="sticky top-0 z-50 border-b border-[#d9d2c5]/80 bg-[#f6f2e9]/95 backdrop-blur-md">
@@ -93,7 +107,7 @@ function App() {
               <a href="#research" className="group inline-flex items-center gap-3 rounded-full bg-[#247366] px-6 py-3.5 text-sm font-semibold text-[#f6f2e9] transition hover:bg-[#1c5b52]">
                 Explore my research <ArrowDown className="transition-transform group-hover:translate-y-1" size={15} />
               </a>
-              <a href="/assets/hee-jung-cho-cv.pdf" download className="inline-flex items-center gap-2 px-3 py-3 text-sm font-semibold text-[#20323a] hover:text-[#247366]">
+              <a href={assetUrl('hee-jung-cho-cv.pdf')} download className="inline-flex items-center gap-2 px-3 py-3 text-sm font-semibold text-[#20323a] hover:text-[#247366]">
                 <Download size={15} /> Download CV
               </a>
             </div>
@@ -108,7 +122,7 @@ function App() {
             <div className="absolute -right-5 -top-7 z-10 hidden h-32 w-32 rounded-full border border-[#c9c1b3] md:block" />
             <div className="absolute -bottom-6 -left-7 z-10 hidden h-24 w-24 rounded-full bg-[#e8c8a8] md:block" />
             <div className="relative z-20 aspect-[.89] overflow-hidden rounded-t-[46%] rounded-b-[46%] bg-[#ddd8d1]">
-              <img src="/assets/profile-photo.jpg" alt="Hee Jung Cho" className="h-full w-full object-cover object-top" />
+              <img src={assetUrl('profile-photo.jpg')} alt="Hee Jung Cho" className="h-full w-full object-cover object-top" />
             </div>
             <div className="absolute -bottom-2 right-0 z-30 w-[210px] border border-[#d9d2c5] bg-[#f6f2e9] p-4 shadow-[0_14px_40px_rgba(32,50,58,.08)] md:-right-10 md:bottom-7">
               <div className="eyebrow text-[#247366]">Research lens</div>
@@ -185,11 +199,11 @@ function App() {
                 <div className="mt-8">
                   <p className="text-[12px] font-semibold leading-6">Memory Inception through Gaze-contingent Message Exposure: Using Virtual Reality to Study Media Influence</p>
                   <p className="mt-1 text-[12px] text-[#687578]">Cho, H. J., Lim, S., Saenz, M., & Schmälzle, R. · Journal of Communication, 2026</p>
-                  <a href="/assets/featured-study.pdf" download className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#247366] px-5 py-3 text-xs font-semibold text-[#f6f2e9] transition hover:bg-[#1c5b52]"><Download size={14} /> Download featured study</a>
+                  <a href={assetUrl('featured-study.pdf')} download className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#247366] px-5 py-3 text-xs font-semibold text-[#f6f2e9] transition hover:bg-[#1c5b52]"><Download size={14} /> Download featured study</a>
                 </div>
               </div>
               <div className="flex min-h-[260px] items-center justify-center border-t border-[#d9d2c5] bg-[#e7e4dc] p-5 md:border-l md:border-t-0 md:p-8">
-                <img src="/assets/vr-eye-tracking-study.png" alt="Study illustration: a participant wearing a VR headset with eye-tracking in a virtual city environment" className="h-full max-h-[370px] w-full object-contain" />
+                <img src={assetUrl('vr-eye-tracking-study.png')} alt="Study illustration: a participant wearing a VR headset with eye-tracking in a virtual city environment" className="h-full max-h-[370px] w-full object-contain" />
               </div>
             </div>
           </div>
@@ -241,7 +255,7 @@ function App() {
             <h2 className="serif mt-3 text-3xl tracking-[-.02em]">PhD candidate, Communication</h2>
             <p className="mt-2 text-sm text-[#687578]">Michigan State University · Expected 2027</p>
           </div>
-          <a href="/assets/hee-jung-cho-cv.pdf" download className="inline-flex w-fit items-center gap-3 rounded-full border border-[#247366] px-6 py-3.5 text-sm font-semibold text-[#247366] transition hover:bg-[#247366] hover:text-[#f6f2e9]"><BookOpen size={16} /> Download curriculum vitae <Download size={14} /></a>
+          <a href={assetUrl('hee-jung-cho-cv.pdf')} download className="inline-flex w-fit items-center gap-3 rounded-full border border-[#247366] px-6 py-3.5 text-sm font-semibold text-[#247366] transition hover:bg-[#247366] hover:text-[#f6f2e9]"><BookOpen size={16} /> Download curriculum vitae <Download size={14} /></a>
         </section>
 
         <footer id="contact" className="bg-[#203b3c] text-[#f6f2e9]">

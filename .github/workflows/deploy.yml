@@ -1,0 +1,92 @@
+name: Deploy academic website to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.1
+          run_install: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --prod=false
+
+      - name: Build academic website
+        run: pnpm --filter @workspace/hee-jung-cho run build
+        env:
+          BASE_PATH: /heejungcho/
+          PORT: 4173
+
+      - name: Verify production output
+        run: |
+          output="artifacts/hee-jung-cho/dist/public"
+          test -f "$output/index.html"
+          test -f "$output/favicon.svg"
+          test -f "$output/assets/profile-photo.jpg"
+          test -f "$output/assets/vr-eye-tracking-study.png"
+          test -f "$output/assets/featured-study.pdf"
+          test -f "$output/assets/hee-jung-cho-cv.pdf"
+          bundle=$(find "$output/assets" -maxdepth 1 -name '*.js' -print -quit)
+          test -n "$bundle"
+          node - "$bundle" <<'NODE'
+          const fs = require("node:fs");
+          const bundle = fs.readFileSync(process.argv[2], "utf8");
+          for (const section of ["about", "research", "cv", "contact"]) {
+            if (!bundle.includes(`id:"${section}"`)) {
+              throw new Error(`Missing page section: ${section}`);
+            }
+            console.log(`Verified page section: ${section}`);
+          }
+          NODE
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: artifacts/hee-jung-cho/dist/public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
