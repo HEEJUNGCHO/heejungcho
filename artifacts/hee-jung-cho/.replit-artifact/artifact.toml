@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Hee Jung Cho — Academic Website"
+description = "A personal academic website for Hee Jung Cho, featuring research in media psychology, immersive technologies, persuasion, health communication, and psychophysiology, with publications, teaching, and CV resources."
+version = "1.0.0"
+id = "artifacts/hee-jung-cho"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23552
+
+[services.development]
+run = "pnpm --filter @workspace/hee-jung-cho run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/hee-jung-cho", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/hee-jung-cho/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23552"
+BASE_PATH = "/"
