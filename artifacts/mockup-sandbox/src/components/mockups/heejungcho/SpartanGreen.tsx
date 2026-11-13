@@ -118,10 +118,8 @@ export function SpartanGreen() {
               <span className="text-sm text-[#46564f]">Expected 2027</span>
             </div>
           </div>
-          <div className="reveal reveal-delay relative mx-auto w-full max-w-[440px] md:mr-4">
-            <div className="absolute -right-5 -top-7 z-10 hidden h-32 w-32 rounded-full border border-[#c8d8d0] md:block" />
-            <div className="absolute -bottom-6 -left-7 z-10 hidden h-24 w-24 rounded-full bg-[#edf3f0] md:block" />
-            <div className="relative z-20 aspect-[.89] overflow-hidden rounded-t-[46%] rounded-b-[46%] bg-[#f1f5f3]">
+          <div className="reveal reveal-delay mx-auto w-full max-w-[440px]">
+            <div className="aspect-[.89] overflow-hidden rounded-t-[46%] rounded-b-[46%] bg-[#f1f5f3]">
               <img src="/__mockup/images/profile-photo.jpg" alt="Hee Jung Cho" className="h-full w-full object-cover object-top" />
             </div>
           </div>
