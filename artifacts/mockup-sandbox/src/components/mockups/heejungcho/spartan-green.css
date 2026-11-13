@@ -1,0 +1,18 @@
+body:has(.spartan-green-page) {
+  background: #ffffff;
+}
+
+.spartan-green-page {
+  background: #ffffff;
+  color: #263631;
+}
+
+.spartan-green-page a:focus-visible,
+.spartan-green-page button:focus-visible {
+  outline: 2px solid #18453b;
+  outline-offset: 4px;
+}
+
+.spartan-green-page .nav-link::after {
+  background: #18453b;
+}
