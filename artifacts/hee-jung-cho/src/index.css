@@ -51,7 +51,7 @@
   --color-sidebar-border: hsl(var(--sidebar-border));
   --color-sidebar-primary: hsl(var(--sidebar-primary));
   --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
-  --color-sidebar-primary-border: var(--sidebar-primary-border);
+  --color-sidebar-primary-border: hsl(var(--sidebar-primary-border));
   --color-sidebar-accent: hsl(var(--sidebar-accent));
   --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
   --color-sidebar-accent-border: var(--sidebar-accent-border);
@@ -265,6 +265,7 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    font-size: 1.0625rem;
   }
 }
 
