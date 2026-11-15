@@ -206,38 +206,38 @@ function App() {
         <section id="publications" className="mx-auto max-w-[1320px] px-5 py-20 md:px-10 md:py-28">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div>
-              <span className="eyebrow text-[#d36c50]">03 — Selected writing</span>
-              <h2 className="serif mt-5 text-4xl tracking-[-.03em] md:text-5xl">Publications</h2>
+              <span className="eyebrow text-[#18453B]">03 — Selected writing</span>
+              <h2 className="serif mt-5 text-4xl tracking-[-.03em] text-[#18453B] md:text-5xl">Publications</h2>
             </div>
-            <ExternalAnchor href={profiles[0].url} className="inline-flex items-center gap-2 text-sm font-semibold text-[#247366] hover:text-[#d36c50]">More on Google Scholar <ExternalLink size={14} /></ExternalAnchor>
+            <ExternalAnchor href={profiles[0].url} className="inline-flex items-center gap-2 text-sm font-semibold text-[#18453B] hover:text-[#10372f]">More on Google Scholar <ExternalLink size={14} /></ExternalAnchor>
           </div>
-          <div className="mt-10 border-t border-[#d9d2c5]">
+          <div className="mt-10 border-t border-[#dce6e1]">
             {publications.map((paper) => (
-              <article key={paper.title} className="grid gap-3 border-b border-[#d9d2c5] py-6 md:grid-cols-[90px_1fr_120px] md:gap-8 md:py-8">
-                <div className="mono pt-1 text-[11px] text-[#247366]">{paper.year}</div>
+              <article key={paper.title} className="grid gap-3 border-b border-[#dce6e1] py-6 md:grid-cols-[90px_1fr_120px] md:gap-8 md:py-8">
+                <div className="mono pt-1 text-[11px] text-[#18453B]">{paper.year}</div>
                 <div>
-                  <div className="eyebrow text-[10px] text-[#8a8174]">{paper.type}</div>
-                  <h3 className="serif mt-2 max-w-[780px] text-[22px] leading-[1.25] text-[#20323a] md:text-[25px]">{paper.title}</h3>
-                  <p className="mt-3 text-[12px] leading-6 text-[#687578]">{paper.authors}{paper.details ? ` ${paper.details}` : ''}</p>
+                  <div className="eyebrow text-[10px] text-[#65766e]">{paper.type}</div>
+                  <h3 className="serif mt-2 max-w-[780px] text-[22px] leading-[1.25] text-[#18453B] md:text-[25px]">{paper.title}</h3>
+                  <p className="mt-3 text-[12px] leading-6 text-[#5c6b64]">{paper.authors}{paper.details ? ` ${paper.details}` : ''}</p>
                 </div>
                 <div className="md:pt-1 md:text-right">
-                  {paper.doi ? <ExternalAnchor href={paper.doi} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#247366] hover:text-[#d36c50]">View DOI <ArrowUpRight size={13} /></ExternalAnchor> : <span className="text-[11px] text-[#8a8174]">In press</span>}
+                  {paper.doi ? <ExternalAnchor href={paper.doi} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#18453B] hover:text-[#10372f]">View DOI <ArrowUpRight size={13} /></ExternalAnchor> : <span className="text-[11px] text-[#65766e]">In press</span>}
                 </div>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="teaching" className="border-y border-[#d9d2c5] bg-[#eee9de]">
+        <section id="teaching" className="border-y border-[#e2eae6] bg-[#f7f9f8]">
           <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-20 md:grid-cols-[.7fr_1.3fr] md:px-10 md:py-24">
             <div>
-              <span className="eyebrow text-[#d36c50]">04 — Teaching</span>
-              <h2 className="serif mt-5 text-4xl leading-tight tracking-[-.03em] md:text-5xl">Learning by asking better questions.</h2>
+              <span className="eyebrow text-[#18453B]">04 — Teaching</span>
+              <h2 className="serif mt-5 text-4xl leading-tight tracking-[-.03em] text-[#18453B] md:text-5xl">Learning by asking better questions.</h2>
             </div>
             <div>
-              <p className="max-w-xl text-[15px] leading-8 text-[#59676a]">At Michigan State University, I teach communication as a way to investigate how people connect, make meaning, and create change.</p>
+              <p className="max-w-xl text-[15px] leading-8 text-[#46564f]">At Michigan State University, I teach communication as a way to investigate how people connect, make meaning, and create change.</p>
               <div className="mt-8 grid gap-x-8 sm:grid-cols-2">
-                {['Human Communication', 'Communication Campaign Design and Analysis', 'Methods of Communication Inquiry', 'Interpersonal Communication'].map((course, index) => <div key={course} className="flex items-start gap-4 border-t border-[#d4ccbd] py-4"><span className="mono pt-1 text-[10px] text-[#247366]">0{index + 1}</span><span className="text-sm font-medium leading-6">{course}</span></div>)}
+                {['Human Communication', 'Communication Campaign Design and Analysis', 'Methods of Communication Inquiry', 'Interpersonal Communication'].map((course, index) => <div key={course} className="flex items-start gap-4 border-t border-[#dce6e1] py-4"><span className="mono pt-1 text-[10px] text-[#18453B]">0{index + 1}</span><span className="text-sm font-medium leading-6">{course}</span></div>)}
               </div>
             </div>
           </div>
@@ -245,35 +245,35 @@ function App() {
 
         <section id="cv" className="mx-auto grid max-w-[1320px] items-center gap-8 px-5 py-16 md:grid-cols-[1fr_auto] md:px-10 md:py-20">
           <div>
-            <span className="eyebrow text-[#247366]">Academic profile</span>
-            <h2 className="serif mt-3 text-3xl tracking-[-.02em]">PhD candidate, Communication</h2>
-            <p className="mt-2 text-sm text-[#687578]">Michigan State University · Expected 2027</p>
+            <span className="eyebrow text-[#18453B]">Academic profile</span>
+            <h2 className="serif mt-3 text-3xl tracking-[-.02em] text-[#18453B]">PhD candidate, Communication</h2>
+            <p className="mt-2 text-sm text-[#5c6b64]">Michigan State University · Expected 2027</p>
           </div>
-          <a href={assetUrl('hee-jung-cho-cv.pdf')} download className="inline-flex w-fit items-center gap-3 rounded-full border border-[#247366] px-6 py-3.5 text-sm font-semibold text-[#247366] transition hover:bg-[#247366] hover:text-[#f6f2e9]"><BookOpen size={16} /> Download curriculum vitae <Download size={14} /></a>
+          <a href={assetUrl('hee-jung-cho-cv.pdf')} download className="inline-flex w-fit items-center gap-3 rounded-full border border-[#18453B] px-6 py-3.5 text-sm font-semibold text-[#18453B] transition hover:bg-[#18453B] hover:text-white"><BookOpen size={16} /> Download curriculum vitae <Download size={14} /></a>
         </section>
 
-        <footer id="contact" className="bg-[#203b3c] text-[#f6f2e9]">
+        <footer id="contact" className="border-t border-[#dce6e1] bg-[#f7f9f8] text-[#263631]">
           <div className="mx-auto max-w-[1320px] px-5 py-16 md:px-10 md:py-20">
             <div className="grid gap-12 md:grid-cols-[1.1fr_.9fr]">
               <div>
-                <span className="eyebrow text-[#df9778]">Let's connect</span>
-                <h2 className="serif mt-5 max-w-lg text-4xl leading-[1.06] tracking-[-.03em] md:text-6xl">Curious about what messages can do?</h2>
-                <a href="mailto:chohee1@msu.edu" className="mt-7 inline-flex items-center gap-3 text-[16px] font-medium text-[#f6f2e9] hover:text-[#df9778]"><Mail size={18} /> chohee1@msu.edu <ArrowUpRight size={16} /></a>
+                <span className="eyebrow text-[#18453B]">Let's connect</span>
+                <h2 className="serif mt-5 max-w-lg text-4xl leading-[1.06] tracking-[-.03em] text-[#18453B] md:text-6xl">Curious about what messages can do?</h2>
+                <a href="mailto:chohee1@msu.edu" className="mt-7 inline-flex items-center gap-3 text-[16px] font-medium text-[#18453B] hover:text-[#10372f]"><Mail size={18} /> chohee1@msu.edu <ArrowUpRight size={16} /></a>
               </div>
               <div className="grid grid-cols-2 gap-8 md:pt-10">
                 <div>
-                  <div className="eyebrow mb-4 text-[#df9778]">Profiles</div>
-                  <div className="grid gap-3">{profiles.map((profile) => <ExternalAnchor key={profile.name} href={profile.url} className="inline-flex items-center gap-2 text-sm text-[#d3ddd6] hover:text-white">{profile.name}<ArrowUpRight size={12} /></ExternalAnchor>)}</div>
+                  <div className="eyebrow mb-4 text-[#18453B]">Profiles</div>
+                  <div className="grid gap-3">{profiles.map((profile) => <ExternalAnchor key={profile.name} href={profile.url} className="inline-flex items-center gap-2 text-sm text-[#40534d] hover:text-[#18453B]">{profile.name}<ArrowUpRight size={12} /></ExternalAnchor>)}</div>
                 </div>
                 <div>
-                  <div className="eyebrow mb-4 text-[#df9778]">Research groups</div>
-                  <div className="grid gap-3">{labs.map((lab) => <ExternalAnchor key={lab.name} href={lab.url} className="inline-flex items-center gap-2 text-sm text-[#d3ddd6] hover:text-white">{lab.name}<ArrowUpRight size={12} /></ExternalAnchor>)}</div>
+                  <div className="eyebrow mb-4 text-[#18453B]">Research groups</div>
+                  <div className="grid gap-3">{labs.map((lab) => <ExternalAnchor key={lab.name} href={lab.url} className="inline-flex items-center gap-2 text-sm text-[#40534d] hover:text-[#18453B]">{lab.name}<ArrowUpRight size={12} /></ExternalAnchor>)}</div>
                 </div>
               </div>
             </div>
-            <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[#ffffff]/20 pt-5 text-[11px] text-[#b9c8c1] sm:flex-row">
+            <div className="mt-14 flex flex-col justify-between gap-3 border-t border-[#dce6e1] pt-5 text-[11px] text-[#65766e] sm:flex-row">
               <span>Hee Jung Cho · Communication · Michigan State University</span>
-              <a href="#top" className="inline-flex items-center gap-2 hover:text-white">Back to top <ArrowUpRight size={12} /></a>
+              <a href="#top" className="inline-flex items-center gap-2 text-[#18453B] hover:text-[#10372f]">Back to top <ArrowUpRight size={12} /></a>
             </div>
           </div>
         </footer>
